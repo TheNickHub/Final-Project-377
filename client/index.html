@@ -21,6 +21,7 @@
       crossorigin=""
     ></script>
   </head>
+
   <body>
     <div class="wrapper">
       <header class="header">
@@ -29,30 +30,35 @@
       <div class="container">
         <div class="left_section box">
           <h2>Input Name</h2>
-          <form class="box main_form"
-
+          <form
+            class="box main_form"
             action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json"
           >
-          <div>
-            <label for="hosp">Hospital Name</label>
-            <input type="text" name="hosp" id="hosp">
-          </div>
-            <div class="buttons">
-              <button type="button" id="data_load">Load County hospitals</button>
+            <div>
+              <label for="hosp">Hospital Name</label>
+              <input type="text" name="hosp" id="hosp" />
             </div>
+            <div class="buttons">
+              <button type="button" id="data_load">
+                Load County hospitals
+              </button>
+            </div>
+          </form>
           <div>
             <h2>Hospitals Near You</h2>
-              <ol>A list of local hospitals</ol>
+            <ol>
+              A list of local hospitals
+            </ol>
           </div>
         </div>
       </div>
       <footer class="footer">
-      <a
-        href="https://data.princegeorgescountymd.gov/Health/County-Hospitals/9r2z-mnpp"
-        target="_blank"
-        rel="noopener noreferrer"
-        >PG County Data</a
-      >
+        <a
+          href="https://data.princegeorgescountymd.gov/Health/County-Hospitals/9r2z-mnpp"
+          target="_blank"
+          rel="noopener noreferrer"
+          >PG County Data</a
+        >
       </footer>
     </div>
   </body>
