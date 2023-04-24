@@ -6,7 +6,7 @@ function getRandomIntInclusive(min, max) {
 
 function injectHTML(list) {
   console.log("fired injectHTML");
-  const target = document.querySelector("#restaurant_list");
+  const target = document.querySelector("#hospital_list");
   target.innerHTML = "";
   list.forEach((item) => {
     const str = `<li>${item.name}</li>`;
@@ -22,7 +22,7 @@ function filterList(list, query) {
   });
 }
 
-function cutRestaurantList(list) {
+function cutHospitalList(list) {
   console.log("fired cut list");
   const range = [...Array(15).keys()];
   return (newArray = range.map((item) => {
@@ -107,7 +107,7 @@ async function mainEvent() {
 
   generateListButton.addEventListener("click", (event) => {
     console.log("generate new list");
-    currentList = cutRestaurantList(parsedData);
+    currentList = cutHospitalList(parsedData);
     console.log(currentList);
     injectHTML(currentList);
     markerPlace(currentList, carto);
