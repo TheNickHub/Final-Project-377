@@ -8,7 +8,7 @@
   */
 
 html {
-  background-color: rgb(13, 146, 183);
+  background-color: rgb(229, 235, 236);
   font-size: 16px;
   min-width: 300px;
   overflow-x: hidden;
@@ -47,7 +47,7 @@ h3 {
 }
 
 form {
-  accent-color: hsla(120, 100%, 50%, 0.482);
+  accent-color: hsla(120, 14%, 91%, 0.482);
 }
 
 /*
@@ -91,8 +91,8 @@ form {
   /* this will push other blocks out of the way */
 
   /* colors */
-  background-color: #0d0df1;
-  color: #e4f406;
+  background-color: #f1f1f7;
+  color: #edede9;
 
   /* shapes */
   border-radius: 6px;
@@ -132,14 +132,14 @@ form {
 }
 
 .left_section {
-  background-color: rgba(189, 82, 25, 0.8);
+  background-color: rgba(237, 232, 230, 0.8);
   flex: 0 1 auto;
   margin: 1rem;
   padding: 1.5rem;
 }
 
 .right_section {
-  background-color: rgba(51, 20, 174, 0.7);
+  background-color: rgba(230, 229, 236, 0.7);
   flex: 1 2 auto;
   margin: 1rem;
   align-items: center;
@@ -157,13 +157,13 @@ form {
 .footer {
   flex-shrink: 0;
   padding: 1rem;
-  background-color: rgba(193, 20, 190, 0.8);
+  background-color: rgba(242, 237, 242, 0.8);
   font-size: 1.2rem;
   font-weight: 600;
 }
 
 .footer a {
-  color: rgb(3, 16, 60);
+  color: rgb(245, 246, 249);
   text-decoration: underline;
 }
 
@@ -176,7 +176,7 @@ form {
   /* Hue, saturation, luminosity, alpha */
   background-color: hsla(0, 0%, 90%, 0.15);
   /* red, green, blue, alpha */
-  color: rgb(246, 169, 93);
+  color: rgb(244, 242, 239);
   text-decoration: none;
 }
 
@@ -256,7 +256,7 @@ div.carousel {
   height: 45px;
   padding: 10px;
   line-height: 0; /* This centers a button's text! */
-  border: 2px solid rgb(99, 99, 99); /* shorthand for how to do a border */
+  border: 2px solid rgb(244, 240, 240); /* shorthand for how to do a border */
 }
 
 .prev:focus,
@@ -267,7 +267,7 @@ div.carousel {
 
 .prev:hover,
 .next:hover {
-  background-color: blue;
+  background-color: rgb(246, 246, 249);
   /* Pick a good background colour for your hover pseudoclass */
 }
 
