@@ -122,8 +122,8 @@ form {
 
 .box {
   background-color: rgb(255, 255, 255);
-  border: 2px dashed;
-  border-radius: 4px;
+  border: 4px double;
+  border-radius: 6px;
 
   width: fit-content;
   height: fit-content;
