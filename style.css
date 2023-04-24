@@ -47,7 +47,7 @@ h3 {
 }
 
 form {
-  accent-color: hsla(120, 100%, 50%, 0.482);
+  accent-color: hsl(0, 0%, 100%);
 }
 
 /*
@@ -91,8 +91,8 @@ form {
   /* this will push other blocks out of the way */
 
   /* colors */
-  background-color: #0d0df1;
-  color: #e4f406;
+  background-color: #ffffff;
+  color: #ffffff;
 
   /* shapes */
   border-radius: 6px;
