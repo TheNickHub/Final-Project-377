@@ -65,7 +65,7 @@ async function mainEvent() {
   const loadDataButton = document.querySelector("#data_load");
   const clearDataButton = document.querySelector("#data_clear");
   const generateListButton = document.querySelector("#generate");
-  const textField = document.querySelector("#resto");
+  const textField = document.querySelector("#hosp");
 
   const loadAnimation = document.querySelector("#data_load_animation");
   loadAnimation.style.display = "none";
