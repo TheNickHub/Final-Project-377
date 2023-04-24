@@ -89,7 +89,7 @@ async function mainEvent() {
 
     // Basic GET request - this replaces the form Action
     const results = await fetch(
-      "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json"
+      "https://data.princegeorgescountymd.gov/resource/county-hospitals.json"
     );
 
     // This changes the response from the GET into data we can use - an "object"
