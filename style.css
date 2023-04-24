@@ -132,14 +132,14 @@ form {
 }
 
 .left_section {
-  background-color: rgba(189, 82, 25, 0.8);
+  background-color: rgb(255, 255, 255);
   flex: 0 1 auto;
   margin: 1rem;
   padding: 1.5rem;
 }
 
 .right_section {
-  background-color: rgba(51, 20, 174, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   flex: 1 2 auto;
   margin: 1rem;
   align-items: center;
@@ -157,7 +157,7 @@ form {
 .footer {
   flex-shrink: 0;
   padding: 1rem;
-  background-color: rgba(193, 20, 190, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -174,7 +174,7 @@ form {
   */
 .footer a:hover {
   /* Hue, saturation, luminosity, alpha */
-  background-color: hsla(0, 0%, 90%, 0.15);
+  background-color: hsla(0, 0%, 100%, 0.212);
   /* red, green, blue, alpha */
   color: rgb(246, 169, 93);
   text-decoration: none;
