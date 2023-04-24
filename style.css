@@ -8,7 +8,7 @@
   */
 
 html {
-  background-color: rgb(13, 146, 183);
+  background-color: rgb(238, 243, 244);
   font-size: 16px;
   min-width: 300px;
   overflow-x: hidden;
@@ -31,7 +31,7 @@ body {
     ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  background-color: rgb(185, 115, 115);
+  background-color: rgb(240, 238, 238);
 }
 
 a {
@@ -47,7 +47,7 @@ h3 {
 }
 
 form {
-  accent-color: hsla(120, 100%, 50%, 0.482);
+  accent-color: hsla(120, 100%, 2%, 0.482);
 }
 
 /*
@@ -91,8 +91,8 @@ form {
   /* this will push other blocks out of the way */
 
   /* colors */
-  background-color: #0d0df1;
-  color: #e4f406;
+  background-color: #000001;
+  color: #f6f6f3;
 
   /* shapes */
   border-radius: 6px;
