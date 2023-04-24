@@ -31,7 +31,7 @@ body {
     ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  background-color: rgb(185, 115, 115);
+  background-color: rgb(255, 255, 255);
 }
 
 a {
@@ -91,8 +91,8 @@ form {
   /* this will push other blocks out of the way */
 
   /* colors */
-  background-color: #0d0df1;
-  color: #e4f406;
+  background-color: #ffffff;
+  color: #000000;
 
   /* shapes */
   border-radius: 6px;
@@ -163,7 +163,7 @@ form {
 }
 
 .footer a {
-  color: rgb(245, 246, 249);
+  color: rgb(32, 65, 167);
   text-decoration: underline;
 }
 
