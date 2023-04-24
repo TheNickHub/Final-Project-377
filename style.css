@@ -8,7 +8,7 @@
   */
 
 html {
-  background-color: rgb(229, 235, 236);
+  background-color: rgb(13, 146, 183);
   font-size: 16px;
   min-width: 300px;
   overflow-x: hidden;
@@ -47,7 +47,7 @@ h3 {
 }
 
 form {
-  accent-color: hsla(120, 14%, 91%, 0.482);
+  accent-color: hsla(120, 100%, 50%, 0.482);
 }
 
 /*
@@ -91,8 +91,8 @@ form {
   /* this will push other blocks out of the way */
 
   /* colors */
-  background-color: #f1f1f7;
-  color: #edede9;
+  background-color: #0d0df1;
+  color: #e4f406;
 
   /* shapes */
   border-radius: 6px;
@@ -121,7 +121,7 @@ form {
 }
 
 .box {
-  background-color: rgba(239, 239, 239, 0.4);
+  background-color: rgb(255, 255, 255);
   border: 2px dashed;
   border-radius: 4px;
 
