@@ -133,13 +133,17 @@ async function mainEvent() {
   // });
   let hospitals = new Set() 
   
-  function filterCity() {
+  function getHospitals() {
     // console.log(storedList)
     storedList.forEach(hospital => {
       hospitals.add(hospital.city)
     })
   }
-  filterCity()
+  function filterCity(city) {
+  const matched = []
+  storedList.forEach(hospital)
+  return matched 
+  }
   console.log(hospitals)
   let hospitalOptions = ""
   Array.from(hospitals).forEach(city => {
