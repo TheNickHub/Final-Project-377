@@ -131,28 +131,63 @@ async function mainEvent() {
   //   localStorage.clear();
   //   console.log("localStorage Check", localStorage.getItem("storedData"));
   // });
-  let hospitals = new Set() 
+  // let hospitals = new Set() 
   
+  // function getHospitals() {
+  //   // console.log(storedList)
+  //   storedList.forEach(hospital => {
+  //     hospitals.add(hospital.city)
+  //   })
+  // }
+  // function filterCity(city) {
+  // const matched = []
+  // storedList.forEach(hospital)
+  // return matched 
+  // }
+  // console.log(hospitals)
+  // let hospitalOptions = ""
+  // Array.from(hospitals).forEach(city => {
+  //   hospitalOptions += `<option value="${city}">${city}</option>`
+
+  // })
+  // console.log(hospitalOptions)
+
   function getHospitals() {
-    // console.log(storedList)
     storedList.forEach(hospital => {
       hospitals.add(hospital.city)
     })
   }
+  
   function filterCity(city) {
-  const matched = []
-  storedList.forEach(hospital)
-  return matched 
+    return storedList.filter(hospital => {
+      return hospital.city === city
+    })
   }
-  console.log(hospitals)
-  let hospitalOptions = ""
-  Array.from(hospitals).forEach(city => {
-    hospitalOptions += `<option value="${city}">${city}</option>`
-
+  
+  function createDropdown() {
+    const cityDropdown = document.getElementById("city-dropdown")
+    hospitals.forEach(city => {
+      const option = document.createElement("option")
+      option.value = city
+      option.text = city
+      cityDropdown.add(option)
+    })
+  }
+  
+  getHospitals()
+  createDropdown()
+  
+  document.getElementById("city-dropdown").addEventListener("change", (event) => {
+    const selectedCity = event.target.value
+    const filteredList = filterCity(selectedCity)
+    console.log(filteredList)
+    injectHTML(filteredList)
+    markerPlace(filteredList, carto)
   })
-  console.log(hospitalOptions)
+  
 
- 
+
+
 // Get value from dropdown input using an eventlistener 
 // Use value to filter stored list 
 // 
