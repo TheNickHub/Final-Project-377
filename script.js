@@ -159,19 +159,9 @@ async function mainEvent() {
   }
   
   function filterCity(city) {
-    return storedList.filter(hospital => {
-      return hospital.city === city
-    })
-  }
-  
-  function createDropdown() {
-    const cityDropdown = document.getElementById("city-dropdown")
-    hospitals.forEach(city => {
-      const option = document.createElement("option")
-      option.value = city
-      option.text = city
-      cityDropdown.add(option)
-    })
+  const matched = []
+  storedList.forEach(hospital)
+  return matched 
   }
   
   getHospitals()
