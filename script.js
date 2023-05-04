@@ -89,16 +89,16 @@ async function mainEvent() {
   // /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
   loadDataButton.addEventListener("click", async (submitEvent) => {
     // async has to be declared on every function that needs to "await" something
-    console.log("Loading Data")
+    console.log("Loading Data");
   });
-    //loadAnimation.style.display = "inline-block";
+  //loadAnimation.style.display = "inline-block";
 
   //   // Basic GET request - this replaces the form Action
-    // const results = await fetch(
-    //   "https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD"
-    // );
+  // const results = await fetch(
+  //   "https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD"
+  // );
 
-    // This changes the response from the GET into data we can use - an "object"
+  // This changes the response from the GET into data we can use - an "object"
   //   const storedList = await results.json();
   //   localStorage.setItem("storedData", JSON.stringify(storedList));
   //   parsedData = storedList;
@@ -136,7 +136,7 @@ async function mainEvent() {
   let hospitals = new Set();
 
   function getHospitals() {
-    console.log(storedList)
+    console.log(storedList);
     storedList.forEach((hospital) => {
       hospitals.add(hospital.city);
     });
@@ -175,19 +175,18 @@ async function mainEvent() {
     });
     return matched;
   }
-  
+
   getHospitals();
   createDropdown();
 
-  document
-    .getElementById("city-dropdown")
-    .addEventListener("change", (event) => {
-      const selectedCity = event.target.value;
-      const filteredList = filterCity(selectedCity);
-      console.log(filteredList);
-      injectHTML(filteredList);
-      markerPlace(filteredList, filter);
-    });
+  const dropdownMenu = document.getElementById("filter");
+  dropdownMenu.addEventListener("change", (event) => {
+    const selectedCity = event.target.value;
+    const filteredList = filterCity(selectedCity);
+    console.log(filteredList);
+    injectHTML(filteredList);
+    markerPlace(filteredList);
+  });
 
   // Get value from dropdown input using an eventlistener
   // Use value to filter stored list
