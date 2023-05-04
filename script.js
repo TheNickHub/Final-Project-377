@@ -151,18 +151,20 @@ async function mainEvent() {
 
   // })
   // console.log(hospitalOptions)
+  // let hospital = new Set()
 
-  function getHospitals() {
-    storedList.forEach(hospital => {
-      hospitals.add(hospital.city)
-    })
-  }
   
-  function filterCity(city) {
-  const matched = []
-  storedList.forEach(hospital)
-  return matched 
-  }
+  // function getHospitals() {
+  //   storedList.forEach(hospital => {
+  //     hospitals.add(hospital.city)
+  //   })
+  // }
+  
+  // function filterCity(city) {
+  // const matched = []
+  // storedList.forEach(hospital)
+  // return matched 
+  // }
   
   getHospitals()
   createDropdown()
