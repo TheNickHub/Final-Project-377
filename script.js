@@ -71,13 +71,13 @@ async function mainEvent() {
   //loadAnimation.style.display = "none";
   //generateListButton.classList.add("hidden");
 
-  const carto = initMap();
+  // const carto = initMap();
 
-  const storedData = localStorage.getItem("storedData");
-  let parsedData = JSON.parse(storedData);
-  if (parsedData?.length > 0) {
-    generateListButton.classList.remove("hidden");
-  }
+  // const storedData = localStorage.getItem("storedData");
+  // let parsedData = JSON.parse(storedData);
+  // if (parsedData?.length > 0) {
+  //   generateListButton.classList.remove("hidden");
+  // }
 
   let currentList = [];
   const results = await fetch(
@@ -89,48 +89,50 @@ async function mainEvent() {
   // /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
   loadDataButton.addEventListener("click", async (submitEvent) => {
     // async has to be declared on every function that needs to "await" something
-    console.log("Loading Data");
+    console.log("Loading Data")
+  });
     loadAnimation.style.display = "inline-block";
 
   //   // Basic GET request - this replaces the form Action
-    const results = await fetch(
-      "https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD"
-    );
+    // const results = await fetch(
+    //   "https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD"
+    // );
 
     // This changes the response from the GET into data we can use - an "object"
-    const storedList = await results.json();
-    localStorage.setItem("storedData", JSON.stringify(storedList));
-    parsedData = storedList;
+  //   const storedList = await results.json();
+  //   localStorage.setItem("storedData", JSON.stringify(storedList));
+  //   parsedData = storedList;
 
-    if (parsedData?.length > 0) {
-      generateListButton.classList.remove("hidden");
-    }
+  //   if (parsedData?.length > 0) {
+  //     generateListButton.classList.remove("hidden");
+  //   }
 
-    loadAnimation.style.display = "none";
-    // console.table(storedList);
-  });
+  //   loadAnimation.style.display = "none";
+  //   // console.table(storedList);
+  // });
 
-  generateListButton.addEventListener("click", (event) => {
-    console.log("generate new list");
-    currentList = cutHospitalList(parsedData);
-    console.log(currentList);
-    injectHTML(currentList);
-    markerPlace(currentList, carto);
-  });
+  // generateListButton.addEventListener("click", (event) => {
+  //   console.log("generate new list");
+  //   currentList = cutHospitalList(parsedData);
+  //   console.log(currentList);
+  //   injectHTML(currentList);
+  //   markerPlace(currentList, carto);
+  // });
 
-  textField.addEventListener("input", (event) => {
-    console.log("input", event.target.value);
-    const newList = filterList(currentList, event.target.value);
-    console.log(newList);
-    injectHTML(newList);
-    markerPlace(newList, carto);
-  });
+  // textField.addEventListener("input", (event) => {
+  //   console.log("input", event.target.value);
+  //   const newList = filterList(currentList, event.target.value);
+  //   console.log(newList);
+  //   injectHTML(newList);
+  //   markerPlace(newList, carto);
+  // });
 
-  clearDataButton.addEventListener("click", (event) => {
-    console.log("clear browser data");
-    localStorage.clear();
-    console.log("localStorage Check", localStorage.getItem("storedData"));
-  });
+  // clearDataButton.addEventListener("click", (event) => {
+  //   console.log("clear browser data");
+  //   localStorage.clear();
+  //   console.log("localStorage Check", localStorage.getItem("storedData"));
+  // });
+
   let hospitals = new Set();
 
   function getHospitals() {
