@@ -140,8 +140,8 @@ async function mainEvent() {
     })
   }
   function filterCity(city) {
-  const matched = []
-  storedList.forEach(hospital)
+    const matched = []
+    storedList.forEach(hospital)
   return matched 
   }
   console.log(hospitals)
