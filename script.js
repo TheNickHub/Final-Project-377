@@ -177,10 +177,10 @@ async function mainEvent() {
   }
   
   getHospitals();
-  createDropdown();
+  //createDropdown();
 
   document
-    .getElementById("city-dropdown")
+    .getElementById("#filter")
     .addEventListener("change", (event) => {
       const selectedCity = event.target.value;
       const filteredList = filterCity(selectedCity);
