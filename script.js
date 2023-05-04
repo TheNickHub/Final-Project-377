@@ -173,7 +173,7 @@ async function mainEvent() {
     });
     return matched;
   }
-
+  
   getHospitals();
   createDropdown();
 
