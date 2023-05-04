@@ -177,7 +177,7 @@ async function mainEvent() {
   }
 
   getHospitals();
-  createDropdown();
+  //createDropdown();
 
   const dropdownMenu = document.getElementById("filter");
   dropdownMenu.addEventListener("change", (event) => {
