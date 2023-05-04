@@ -91,7 +91,7 @@ async function mainEvent() {
     // async has to be declared on every function that needs to "await" something
     console.log("Loading Data")
   });
-    loadAnimation.style.display = "inline-block";
+    //loadAnimation.style.display = "inline-block";
 
   //   // Basic GET request - this replaces the form Action
     // const results = await fetch(
