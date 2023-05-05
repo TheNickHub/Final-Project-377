@@ -65,7 +65,8 @@ async function mainEvent() {
   const loadDataButton = document.querySelector("#data_load");
   const clearDataButton = document.querySelector("#data_clear");
   const generateListButton = document.querySelector("#generate");
-  const textField = document.querySelector("#hosp");
+  const textField = document.querySelector("filter");
+  const citiesDropdown = document.querySelector("#cities")
 
   //const loadAnimation = document.querySelector("#data_load_animation");
   //loadAnimation.style.display = "none";
@@ -156,7 +157,7 @@ async function mainEvent() {
     document.querySelector("#cities").innerHTML = hospitalOptions;
   }
 
-  console.log(hospitalOptions);
+  //console.log(hospitalOptions);
 
 
   // function filterCity(city) {
@@ -172,6 +173,7 @@ async function mainEvent() {
   createDropdown();
 
   const dropdownMenu = document.getElementById("#cities");
+  console.log(dropdownMenu);
   dropdownMenu.addEventListener("change", (event) => {
     const selectedCity = event.target.value;
     const filteredList = filterCity(selectedCity);
