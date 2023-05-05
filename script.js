@@ -133,19 +133,31 @@ async function mainEvent() {
   //   console.log("localStorage Check", localStorage.getItem("storedData"));
   // });
 
+  function filterCity(city) {
+    const matched = storedList.filter((hospital) => {
+      return hospital.city.toLowerCase() === city.toLowerCase();
+    });
+    return matched;
+  }
+
   let hospitals = new Set();
 
   function getHospitals() {
-    console.log(storedList);
     storedList.forEach((hospital) => {
       hospitals.add(hospital.city);
     });
   }
-  function filterCity(city) {
-    const matched = [];
-    storedList.forEach(hospital);
-    return matched;
+  function updateHospitalOptions(city) {
+    const filteredHospitals = filterCity(city);
+    let hospitalOptions = "";
+    filteredHospitals.forEach((hospital) => {
+      hospitalOptions += `<option value="${hospital.name}">${city}</option>`;
+    });
+    document.querySelector("#filter").innerHTML = hospitalOptions;
   }
+  
+    
+
   console.log(hospitals);
   let hospitalOptions = "";
   Array.from(hospitals).forEach((city) => {
@@ -166,15 +178,8 @@ async function mainEvent() {
   // return matched
   // }
 
-  function filterCity(city) {
-    const matched = [];
-    storedList.forEach((hospital) => {
-      if (hospital.city.toLowerCase() === city.toLowerCase()) {
-        matched.push(hospital);
-      }
-    });
-    return matched;
-  }
+ 
+  
 
   getHospitals();
   //createDropdown();
