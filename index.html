@@ -45,7 +45,7 @@
                 )
                   .then((response) => response.json())
                   .then((data) => {
-                    const citiesDropdown = document.querySelector("#cities");
+                    const citiesDropdown = document.querySelector("cities");
                     data.forEach((city) => {
                       const option = document.createElement("option");
                       option.text = city.City;

@@ -153,24 +153,11 @@ async function mainEvent() {
     filteredHospitals.forEach((hospital) => {
       hospitalOptions += `<option value="${hospital.name}">${city}</option>`;
     });
-    document.querySelector("#filter").innerHTML = hospitalOptions;
+    document.querySelector("#cities").innerHTML = hospitalOptions;
   }
-  
-    
 
-  console.log(hospitals);
-  let hospitalOptions = "";
-  Array.from(hospitals).forEach((city) => {
-    hospitalOptions += `<option value="${city}">${city}</option>`;
-  });
   console.log(hospitalOptions);
-  let hospital = new Set();
 
-  function getHospitals() {
-    storedList.forEach((hospital) => {
-      hospitals.add(hospital.city);
-    });
-  }
 
   // function filterCity(city) {
   // const matched = []
@@ -184,7 +171,7 @@ async function mainEvent() {
   getHospitals();
   createDropdown();
 
-  const dropdownMenu = document.getElementById("filter");
+  const dropdownMenu = document.getElementById("#cities");
   dropdownMenu.addEventListener("change", (event) => {
     const selectedCity = event.target.value;
     const filteredList = filterCity(selectedCity);
@@ -197,7 +184,7 @@ async function mainEvent() {
   // Use value to filter stored list
   //
 
-  document.querySelector("#filter").innerHTML = hospitalOptions;
+  document.querySelector("#cities").innerHTML = hospitalOptions;
 }
 
 document.addEventListener("DOMContentLoaded", async () => mainEvent()); // the async keyword means we can make API requests
