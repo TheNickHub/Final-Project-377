@@ -61,12 +61,12 @@ function markerPlace(array, map) {
 
 async function mainEvent() {
   // the async keyword means we can make API requests
-  const mainForm = document.querySelector(".main_form");
-  const loadDataButton = document.querySelector("#data_load");
-  const clearDataButton = document.querySelector("#data_clear");
+  // const mainForm = document.querySelector(".main_form");
+  // const loadDataButton = document.querySelector("#data_load");
+  // const clearDataButton = document.querySelector("#data_clear");
   const generateListButton = document.querySelector("#generate");
-  const textField = document.querySelector("filter");
-  const citiesDropdown = document.querySelector("#cities")
+  // const textField = document.querySelector("filter");
+  const citiesDropdown = document.querySelector("#cities");
 
   //const loadAnimation = document.querySelector("#data_load_animation");
   //loadAnimation.style.display = "none";
@@ -79,18 +79,27 @@ async function mainEvent() {
   // if (parsedData?.length > 0) {
   //   generateListButton.classList.remove("hidden");
   // }
+  localStorage.clear()
+  let storedList = localStorage.getItem("hospitalList");
+  if (!storedList) {
+    const results = await fetch(
+      "https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD"
+    );
+    storedList = await results.json();
+    localStorage.setItem("hospitalList", storedList);
+    
+  }
 
   let currentList = [];
-  const results = await fetch(
-    "https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD"
-  );
+  // storedList.forEach(item => {
+  //   console.log(item)
+  // })
 
   // This changes the response from the GET into data we can use - an "object"
-  const storedList = await results.json();
   // /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
   //loadDataButton.addEventListener("click", async (submitEvent) => {
-    // async has to be declared on every function that needs to "await" something
-    //console.log("Loading Data");
+  // async has to be declared on every function that needs to "await" something
+  //console.log("Loading Data");
   //});
   //loadAnimation.style.display = "inline-block";
 
@@ -134,59 +143,81 @@ async function mainEvent() {
   //   console.log("localStorage Check", localStorage.getItem("storedData"));
   // });
 
-  function filterCity(city) {
-    const matched = storedList.filter((hospital) => {
-      return hospital.city.toLowerCase() === city.toLowerCase();
+    function filterCity(city) {
+      const matched = storedList.filter((hospital) => {
+        return hospital.city.toLowerCase() === city.toLowerCase();
+      });
+      return matched;
+    }
+
+  //   let hospitals = new Set();
+
+  //   function getHospitals() {
+  //     storedList.forEach((hospital) => {
+  //       hospitals.add(hospital.city);
+  //     });
+  //   }
+  //   function updateHospitalOptions(city) {
+  //     const filteredHospitals = filterCity(city);
+  //     let hospitalOptions = [];
+  //     filteredHospitals.forEach((hospital) => {
+  //       hospitalOptions += `<option value="${hospital.name}">${city}</option>`;
+  //     });
+  //     document.querySelector("#cities").innerHTML = hospitalOptions;
+  //   }
+
+  //   //console.log(hospitalOptions);
+
+  //   // function filterCity(city) {
+  //   // const matched = []
+  //   // storedList.forEach(hospital)
+  //   // return matched
+  //   // }
+
+  //   getHospitals();
+  //   createDropdown();
+  console.log(storedList)
+  // fetch(
+  //   "https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD"
+  // )
+  //   .then((response) => response.json())
+  //   .then((data) => {
+      //const citiesDropdown = document.querySelector("#cities");
+      let data = new Set();
+      storedList.forEach((hospital) => {
+        data.add(hospital.city)
+      });
+      
+      console.log(data)
+
+      data.forEach((city) => {
+        const option = document.createElement("option");
+        option.text = city;
+        option.value = city;
+        citiesDropdown.add(option);
+      
+      });
+    //});
+    let selectedCity = "";
+
+    const dropdownMenu = document.querySelector("#cities");
+    console.log(dropdownMenu);
+    dropdownMenu.addEventListener("change", (event) => {
+      selectedCity = event.target.value;
     });
-    return matched;
-  }
 
-  let hospitals = new Set();
+    generateListButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      const filteredList = filterCity(selectedCity);
+      console.log(filteredList);
+      injectHTML(filteredList)
+    })
 
-  function getHospitals() {
-    storedList.forEach((hospital) => {
-      hospitals.add(hospital.city);
-    });
-  }
-  function updateHospitalOptions(city) {
-    const filteredHospitals = filterCity(city);
-    let hospitalOptions = "";
-    filteredHospitals.forEach((hospital) => {
-      hospitalOptions += `<option value="${hospital.name}">${city}</option>`;
-    });
-    document.querySelector("#cities").innerHTML = hospitalOptions;
-  }
+  //   // Get value from dropdown input using an eventlistener
+  //   // Use value to filter stored list
+  //   //
 
-  //console.log(hospitalOptions);
-
-
-  // function filterCity(city) {
-  // const matched = []
-  // storedList.forEach(hospital)
-  // return matched
-  // }
-
- 
-  
-
-  getHospitals();
-  createDropdown();
-
-  const dropdownMenu = document.getElementById("#cities");
-  console.log(dropdownMenu);
-  dropdownMenu.addEventListener("change", (event) => {
-    const selectedCity = event.target.value;
-    const filteredList = filterCity(selectedCity);
-    console.log(filteredList);
-    injectHTML(filteredList);
-    markerPlace(filteredList);
-  });
-
-  // Get value from dropdown input using an eventlistener
-  // Use value to filter stored list
-  //
-
-  document.querySelector("#cities").innerHTML = hospitalOptions;
+  //   document.querySelector("#cities").innerHTML = hospitalOptions;
 }
 
 document.addEventListener("DOMContentLoaded", async () => mainEvent()); // the async keyword means we can make API requests

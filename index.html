@@ -32,30 +32,16 @@
             <h2>Input Name</h2>
             <form
               class="box main_form"
-              action="https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD"
+              
             >
               <label for="cities">City Name</label>
               <select id="cities" name="cities">
                 <option value="">--Select a City--</option>
               </select>
 
-              <script>
-                fetch(
-                  "https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD"
-                )
-                  .then((response) => response.json())
-                  .then((data) => {
-                    const citiesDropdown = document.querySelector("#cities");
-                    data.forEach((city) => {
-                      const option = document.createElement("option");
-                      option.text = city.City;
-                      option.value = city.City;
-                      citiesDropdown.add(option);
-                    });
-                  });
-              </script>
+              
 
-              <button type="submit" oneClick="City">Apply</button>
+              <button type="submit" id = "generate">Apply</button>
 
               <div class="buttons">
                 <!-- <button type="button" id="data_load">
