@@ -187,7 +187,7 @@ async function mainEvent() {
       storedList.forEach((hospital) => {
         data.add(hospital.city)
       });
-      
+     
       console.log(data)
 
       data.forEach((city) => {
