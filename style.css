@@ -128,9 +128,13 @@ form {
   background-color: rgba(129, 184, 129, 0.9);
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin-top: auto;
-  
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .results {
   background-color: #f9fbfa;
 }
+

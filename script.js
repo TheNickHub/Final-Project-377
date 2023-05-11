@@ -161,57 +161,7 @@ async function mainEvent() {
   }
 
   let currentList = [];
-  // storedList.forEach(item => {
-  //   console.log(item)
-  // })
-
-  // This changes the response from the GET into data we can use - an "object"
-  // /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
-  //loadDataButton.addEventListener("click", async (submitEvent) => {
-  // async has to be declared on every function that needs to "await" something
-  //console.log("Loading Data");
-  //});
-  //loadAnimation.style.display = "inline-block";
-
-  //   // Basic GET request - this replaces the form Action
-  // const results = await fetch(
-  //   "https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD"
-  // );
-
-  // This changes the response from the GET into data we can use - an "object"
-  //   const storedList = await results.json();
-  //   localStorage.setItem("storedData", JSON.stringify(storedList));
-  //   parsedData = storedList;
-
-  //   if (parsedData?.length > 0) {
-  //     generateListButton.classList.remove("hidden");
-  //   }
-
-  //   loadAnimation.style.display = "none";
-  //   // console.table(storedList);
-  // });
-
-  // generateListButton.addEventListener("click", (event) => {
-  //   console.log("generate new list");
-  //   currentList = cutHospitalList(parsedData);
-  //   console.log(currentList);
-  //   injectHTML(currentList);
-  //   markerPlace(currentList, carto);
-  // });
-
-  // textField.addEventListener("input", (event) => {
-  //   console.log("input", event.target.value);
-  //   const newList = filterList(currentList, event.target.value);
-  //   console.log(newList);
-  //   injectHTML(newList);
-  //   markerPlace(newList, carto);
-  // });
-
-  // clearDataButton.addEventListener("click", (event) => {
-  //   console.log("clear browser data");
-  //   localStorage.clear();
-  //   console.log("localStorage Check", localStorage.getItem("storedData"));
-  // });
+  
 
   function filterCity(city) {
     const matched = storedList.filter((hospital) => {
