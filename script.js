@@ -25,10 +25,10 @@ function filterList(list, query) {
 function cutHospitalList(list) {
   console.log("fired cut list");
   const range = [...Array(15).keys()];
-  return (newArray = range.map((item) => {
+  return newArray = range.map(function(item) {
     const index = getRandomIntInclusive(0, list.length - 1);
     return list[index];
-  }));
+  });
 }
 
 
@@ -43,25 +43,24 @@ function initMap(city) {
   if (carto) {
     carto.remove();
   }
-  carto = L.map('map').setView([39.0458, -76.6413], 7);
+  carto = L.map("map").setView([39.0458, -76.6413], 7);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    attribution: "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>",
+    maxZoom: 19
   }).addTo(carto);
 
-  fetch('https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD')
+  fetch("https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD")
     .then((response) => response.json())
-    .then(hospitals => {
+    .then((hospitals) => {
       const hospitalIcon = L.icon({
-        iconUrl: 'https://cdn3.iconfinder.com/data/icons/medical-icons-3/512/Hospital-512.png',
+        iconUrl: "https://cdn3.iconfinder.com/data/icons/medical-icons-3/512/Hospital-512.png",
         iconSize: [40, 40],
       });
 
       const filteredHospitals = hospitals.filter(hospital => hospital.city === city);
 
       for (const hospital of filteredHospitals) {
-        const address = hospital.street_address + ', ' + hospital.city + ', ' + hospital.state + ' ' + hospital.zip_code;
-
+        const address = hospital.street_address + ", " + hospital.city + ", " + hospital.state + " " + hospital.zip_code;
         const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=fdbb867d57b24fb5b77b706db67845a1`;
         fetch(url)
           .then(response => response.json())
@@ -79,9 +78,9 @@ function initMap(city) {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const selectCity = document.querySelector('#cities');
-  selectCity.addEventListener('change', (event) => {
+document.addEventListener("DOMContentLoaded", () => {
+  const selectCity = document.querySelector("#cities");
+  selectCity.addEventListener("change", (event) => {
     const selectedCity = event.target.value;
     initMap(selectedCity);
   });
@@ -114,9 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //   const markers = [];
 
 //   for (const hospital of hospitals) {
-//     const address = hospital.street_address + ', ' + hospital.city + ', ' + hospital.state + ' ' + hospital.zip_code;
-  
-//     // Make a request to OpenCage Geocoding API
+//     const address = hospital.street_address + ', ' + hospital.city + ', ' + hospital.state + ' ' + hospital.zip_code; 
+//     
 //     const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=`;
 //     fetch(url)
 //       .then(response => response.json())
