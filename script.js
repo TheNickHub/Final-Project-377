@@ -36,6 +36,54 @@ function cutHospitalList(list) {
 
 
 
+// let mapInitialized = false;
+// let carto;
+
+// function initMap(city) {
+//   if (carto) {
+//     carto.remove();
+//   }
+//   carto = L.map("map").setView([39.0458, -76.6413], 7);
+//   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+//     attribution: "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>",
+//     maxZoom: 18
+//   }).addTo(carto);
+
+//   carto.fitBounds([
+//     [37.9118, -79.4739], //south west part of MD
+//     [39.722, -75.0479] //north east part of MD
+//   ]);
+  
+
+//   fetch("https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD")
+//     .then((response) => response.json())
+//     .then((hospitals) => {
+//       const hospitalIcon = L.icon({
+//         iconUrl: "https://cdn3.iconfinder.com/data/icons/medical-icons-3/512/Hospital-512.png",
+//         iconSize: [40, 40],
+//       });
+
+//       const filteredHospitals = hospitals.filter(hospital => hospital.city === city);
+
+//       for (const hospital of filteredHospitals) {
+//         const address = hospital.street_address + ", " + hospital.city + ", " + hospital.state + " " + hospital.zip_code;
+//         const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=fdbb867d57b24fb5b77b706db67845a1`;
+//         fetch(url)
+//           .then(response => response.json())
+//           .then(data => {
+//             console.log(data);
+//             const lat = data.results[0].geometry.lat;
+//             const lng = data.results[0].geometry.lng;
+//             const marker = L.marker([lat, lng]).bindPopup(hospital.name);
+//             marker.addTo(carto);
+//           })
+//           .catch(error => console.error(error));
+//       }
+//     });
+// }
+
+
+
 let mapInitialized = false;
 let carto;
 
@@ -46,7 +94,7 @@ function initMap(city) {
   carto = L.map("map").setView([39.0458, -76.6413], 7);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>",
-    maxZoom: 19
+    maxZoom: 18
   }).addTo(carto);
 
   fetch("https://www.communitybenefitinsight.org/api/get_hospitals.php?state=MD")
@@ -73,9 +121,25 @@ function initMap(city) {
           })
           .catch(error => console.error(error));
       }
+
+      // Zoom the map to the coordinates of the chosen city
+      const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(city + ', Maryland')}&key=fdbb867d57b24fb5b77b706db67845a1`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const lat = data.results[0].geometry.lat;
+          const lng = data.results[0].geometry.lng;
+          carto.setView([lat, lng], 11);
+        })
+        .catch(error => console.error(error));
     });
 }
 
+document.querySelector('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const city = document.querySelector('input[name="city"]').value;
+  initMap(city);
+});
 
 
 document.addEventListener("DOMContentLoaded", () => {
