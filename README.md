@@ -1,6 +1,9 @@
 # Final-Project-377 Lena Mastracci and Nicholas Shen
 <h1>https://thenickhub.github.io/Final-Project-377/</h1>
 
+# Target browsers
+We would like anyone at any time to be able to access this application becuase if someone is looking for or needs a hospital, they would most likely need to find one quickly so we want this to be mobile and on PC
+
 # What API did you use, link to the API
 We used a Maryland database that lists all the hospitals along with their address and respective information. The json file initially shows all hospitals in the US, but we specified MD hospitals only for our project
 https://www.communitybenefitinsight.org/?page=info.data_api </h2>
@@ -16,6 +19,8 @@ https://www.communitybenefitinsight.org/?page=info.data_api </h2>
 -Fetch API requests
 
 # What CSS frameworks did you use? What version of them?
+-We used bootstrap 4.0 for font styles and other styling elements
+-Leaflet 1.9.3
 
 # What is your actual project trying to display and solve?
 Our actual project is attempting to make it faster and easier to search for and locate any hospital in any city in Maryland. The dropdown menu was key to this so that users don’t have to worry about typos and can quickly choose an option
