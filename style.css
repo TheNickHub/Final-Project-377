@@ -89,7 +89,7 @@ form {
 }
 
 #map {
-  height: 425px; /* Change this value to adjust the height as needed */
+  height: 400px; /* Change this value to adjust the height as needed */
   width: 100%;
 }
 
@@ -123,8 +123,10 @@ form {
 }
 
 .footer {
-  font-size: xx-large;
+  font-size: x-large;
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.9);
   font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: auto;
+  
 }
